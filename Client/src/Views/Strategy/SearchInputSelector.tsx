@@ -75,7 +75,7 @@ export const SearchInputSelectorView = ({
       const checkboxRowsCount = countCheckboxRows(searchTree);
       const allBranchIds = getAllBranchIds(searchTree);
       const SMALL_CHECKBOX_ROW_COUNT = 8;
-      const MIN_CATEGORIES_TO_SHOW = 5;
+      const MIN_CATEGORIES_TO_SHOW = 1; // 5 -EGA to allow for searches to be arranged by study despite being only 2-3 categories
 
       // If there are 0 or 1 search categories, or fewer than SMALL_CHECKBOX_ROW_COUNT rows in the checkbox tree
       // ... don't offer expand/collapse links, and start expanded
@@ -313,7 +313,7 @@ const pruneAndOrderSearchesForRecordClass = (ontology: CategoryOntology, recordC
   );
 
   const unorderedSearchesLeaves = getLeaves(unorderedSearchesInitial, node => node.children);
-  const MAX_LEAVES_IN_FLAT_TREE = 8;
+  const MAX_LEAVES_IN_FLAT_TREE = 2; // EGA - again, to allow grouping by studies
 
   const unorderedSearchesPenultimate = unorderedSearchesLeaves.length <= MAX_LEAVES_IN_FLAT_TREE
     ? {

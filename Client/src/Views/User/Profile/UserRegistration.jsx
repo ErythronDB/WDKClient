@@ -55,7 +55,6 @@ let WhyRegister = () => (
         <li>Have your strategies back the next time you login</li>
         <li>Use your basket to store temporarily IDs of interest, and either save, or download or access other tools</li>
         <li>Use your favorites to store IDs of permanent interest, for faster access to its record page</li>
-        <li>Add a comment on genes and sequences</li>
         <li>Set site preferences, such as items per page displayed in the query result</li>
       </ul>
     </div>
@@ -65,8 +64,8 @@ let WhyRegister = () => (
 let PrivacyPolicy = () => (
   <div style={descriptionBoxStyle}>
     <div style={{fontSize:"1.2em"}}>
-      <a title="It will open in a new tab" target="_blank" href="/a/app/static-content/privacyPolicy.html">
-        <b>VEuPathDB Websites Privacy Policy</b></a> 
+      <a title="It will open in a new tab" target="_blank" href="@webappCtx@/app/privacy-policy">
+        <b>EryhthronDB Privacy Policy</b></a> 
     </div>
     <table>
       <tbody>
@@ -85,7 +84,6 @@ let PrivacyPolicy = () => (
             <p><b>How we will use your name and institution:</b></p>
             <div id="cirbulletlist">
               <ul>
-                <li>If you add a comment to a Gene or a Sequence, your name and institution will be displayed with the comment.</li>
                 <li>If you make one of your strategies Public, your name and institution will be displayed with it.</li>
                 <li>NOTHING ELSE.  We will not release your name or institution.</li>
               </ul>
@@ -108,7 +106,6 @@ let UserRegistration = props => (
         shouldHideForm={!props.globalData.user.isGuest}
         hiddenFormMessage="You must log out before registering a new user."
         titleText="Registration"
-        introComponent={IntroText}
         statusDisplayFunction={interpretFormStatus}
         showChangePasswordBox={false}
         submitButtonText="Register"

@@ -1,12 +1,20 @@
 import $ from 'jquery';
 import RealTimeSearchBox from 'wdk-client/Components/SearchBox/RealTimeSearchBox';
-import { isEqual, once, uniqueId, uniqBy } from 'lodash';
+import { eq, once, uniqueId, uniqBy, assign } from 'lodash';
 import React, { Component, PureComponent, ReactElement } from 'react';
 import { createPortal } from 'react-dom';
 import { formatAttributeValue, lazy, wrappable } from 'wdk-client/Utils/ComponentUtils';
 import { containsAncestorNode } from 'wdk-client/Utils/DomUtils';
 import { areTermsInStringRegexString, parseSearchQueryString } from 'wdk-client/Utils/SearchUtils';
 import 'wdk-client/Components/DataTable/DataTable.css';
+
+/* EGA - Highcharts */
+import Highcharts from 'highcharts';
+import Exporting from 'highcharts/modules/exporting';
+Exporting(Highcharts);
+import HighchartsReact from 'highcharts-react-official';
+require('highcharts/highcharts-more')(Highcharts);
+import ReactDOM from 'react-dom';
 
 
 const expandColumn = {
@@ -490,6 +498,22 @@ function formatColumns(columns: ColumnDef[]): DataTables.ColumnSettings[] {
       visible: column.isDisplayable,
       searchable: column.isDisplayable,
       orderable: column.isSortable,
+      createdCell: function (cell: any, cellData: any, rowData: any, row:number, column:number) {
+        let value = cellData;
+        if (String(value).startsWith('{')) {
+          let jV = JSON.parse(value);
+          if (jV.hasOwnProperty('message')) {
+            value = jV.message;      
+            $(cell).html('<div class="wdk-DataTableCellContent">' + value + '</div>');      
+          }
+          else {
+            //$(cell).css('color', 'red');
+            let key = "profile" + String(row) + "_" + String(column);
+            jV.chart = assign({}, {"width": 300, "height":300});
+            ReactDOM.render([<HighchartsReact highcharts={Highcharts} options={jV} key={key}/>], cell);
+          }
+        }
+      },
       render(data: any, type: string) {
         let value = formatAttributeValue(data);
         if (type === 'display' && value != null) {
@@ -514,6 +538,6 @@ function formatSorting(columns: DataTables.ColumnSettings[], sorting: SortingDef
 }
 
 /** Return boolean indicating if a prop's value has changed. */
-function didPropChange(component: Component<Props, any>, prevProps: Props, propName: keyof Props) {
-  return !isEqual(component.props[propName], prevProps[propName]);
+function didPropChange(component: Component<Props, any>, prevProps: Props, propName: string) {
+  return (component.props as any)[propName] !== (prevProps as any)[propName];
 }
