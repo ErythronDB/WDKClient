@@ -124,7 +124,7 @@ export const StrategyActions: Record<string, StrategyAction> = {
     )
   },
 
-  edit: {
+  /*edit: {
     iconName: 'pencil-square-o',
     title: 'Edit details',
     render: (props: ActionProps) => <EditStrategyForm {...props}/>
@@ -135,14 +135,14 @@ export const StrategyActions: Record<string, StrategyAction> = {
     title: 'Save as',
     render: (props: ActionProps) => <SaveAsStrategyForm {...props}/>,
     loginRequired: true
-  },
+  },*/
 
-  share: {
+  /*share: {
     iconName: 'share-alt',
     title: 'Share',
     render: ShareAction,
     loginRequired: true
-  },
+  },*/
 
   delete: {
     iconName: 'trash-o',
