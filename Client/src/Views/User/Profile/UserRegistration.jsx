@@ -65,7 +65,7 @@ let PrivacyPolicy = () => (
   <div style={descriptionBoxStyle}>
     <div style={{fontSize:"1.2em"}}>
       <a title="It will open in a new tab" target="_blank" href="@webappCtx@/app/privacy-policy">
-        <b>EryhthronDB Privacy Policy</b></a> 
+        <b>ErythronDB Privacy Policy</b></a> 
     </div>
     <table>
       <tbody>
