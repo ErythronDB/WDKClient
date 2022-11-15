@@ -105,6 +105,7 @@ class RecordUI extends Component {
           recordClass={this.props.recordClass}
           headerActions={this.props.headerActions}
         />
+        {this.props.recordClass.displayName != 'Dataset' && 
         <Sticky>
           {({isFixed}) => (
             <div className={'wdk-RecordSidebar' + (
@@ -119,6 +120,7 @@ class RecordUI extends Component {
                 <i className={sidebarIconClass}
                   title={this.props.navigationVisible ? 'Close sidebar' : 'Open sidebar'}/>
               </button>
+             
               <RecordNavigationSection
                 heading={this.props.record.displayName}
                 record={this.props.record}
@@ -137,7 +139,7 @@ class RecordUI extends Component {
               />
             </div>
           )}
-        </Sticky>
+        </Sticky>}
         <div className="wdk-RecordMain">
           {/* <div className="wdk-RecordMainSectionFieldToggles">
             <button type="button" title="Expand all content" className="wdk-Link"
