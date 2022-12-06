@@ -7,7 +7,7 @@ let RecordHeading = props => {
   let { record, recordClass, headerActions } = props;
   return (
     <div>
-      <ul className="wdk-RecordActions">
+     {/* <ul className="wdk-RecordActions">
         {headerActions.map((action, index) => {
           return (
             <li key={index} className="wdk-RecordActionItem">
@@ -15,7 +15,7 @@ let RecordHeading = props => {
             </li>
           );
         })}
-      </ul>
+      </ul> */}
       <h1 className="wdk-RecordHeading">{recordClass.displayName}: {safeHtml(record.displayName)}</h1>
     </div>
   );
