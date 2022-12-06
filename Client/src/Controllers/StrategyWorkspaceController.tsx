@@ -138,8 +138,8 @@ function ChildView({ allowEmptyOpened, queryParams, dispatch, subPath, openedStr
       return <PublicStrategiesController />
     case 'importStrategy':
       return <ImportStrategyController strategySignature={childView.signature} selectedTab={childView.selectedTab} />
-    case 'help':
-      return <StrategyHelpPage/>
+    /*case 'help':
+      return <StrategyHelpPage/> */
     default:
       return <StrategyViewController openedStrategies={openedStrategies}/>
   }

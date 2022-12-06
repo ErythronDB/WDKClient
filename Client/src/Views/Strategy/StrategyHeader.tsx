@@ -53,10 +53,10 @@ function StrategyHeader(props: Props) {
           display: <>Public ({toCountString(publicStrategiesCount, publicStrategiesError)})</>,
           route: 'public'
         },
-        {
+       /* {
           display: 'Help',
           route: 'help'
-        }
+        }*/
       ]}
     />
   )
