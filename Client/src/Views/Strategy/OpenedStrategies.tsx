@@ -70,7 +70,10 @@ export default function OpenedStrategies(props: Props) {
   if (openedStrategies == null || openedStrategies.length === 0) return (
     <div style={{ fontSize: '1.2em' }}>
       <p>You have no open strategies. Please run a search to start a strategy.</p>
-      <p>To open an existing strategy, visit the <Link to="/workspace/strategies/all">'All' page</Link>.</p>
+      <p>To search analysis results: select your study from either the <em>Transcriptomics</em> or <em>Proteomics</em> menus.  Links are provided on the study overviews to mine the associated datasets.</p> 
+      <p>To find a genes by type or function, use the following links: <Link to="/search/hs/hs_gene_keyword">Find Human Genes</Link>  // <Link to="/search/mm/mm_gene_keyword">Mouse Genes</Link></p>
+      <p>To upload a list of genes, use the links provided in the <em>Workspace</em> menu.</p>
+      <p>To open an existing strategy, visit the <Link to="/workspace/strategies/public">Public Strategies</Link> page.</p>
     </div>
   );
 
