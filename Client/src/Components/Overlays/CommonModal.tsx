@@ -16,7 +16,7 @@ interface Props {
 export default function CommonModal(props: Props) {
   const { children, title, onClose, onGoBack } = props;
   const leftButtons = onGoBack && [
-    <button type="button" onClick={() => onGoBack()}>
+    <button key={Math.random().toString(32).slice(2)} type="button" onClick={() => onGoBack()}>
       <i className="fa fa-arrow-left"/>
     </button>
   ]

@@ -237,7 +237,7 @@ export const CombineStepMenuView = (
     <div className={cx()}>
       {
         (
-          !basketSearchShortDisplayName ||
+         // !basketSearchShortDisplayName ||
           !booleanSearchState ||
           booleanSearchState.questionStatus === 'loading' ||
           !booleanOperatorParameter

@@ -209,7 +209,7 @@ export const SearchInputSelectorView = ({
                 />
               )
             },
-            {
+            /*{
               key: 'basket',
               display: (
                 <TabDisplay
@@ -228,7 +228,7 @@ export const SearchInputSelectorView = ({
                   selectBasketButtonText={selectBasketButtonText}
                 />
               )
-            }
+            } */
           ]}
           activeTab={selectedTab}
           onTabSelected={onTabSelected}
