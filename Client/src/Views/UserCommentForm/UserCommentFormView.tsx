@@ -89,7 +89,7 @@ export const UserCommentFormView: React.SFC<UserCommentFormViewProps> = ({
                   {
                     internalError && (
                       <div>
-                        An internal error occurred while trying to submit your comment. Please try to resubmit and <Link to="/contact-us" target="_blank">contact us</Link> if this problem persists.
+                        An internal error occurred while trying to submit your comment. Please try to resubmit and contact us if this problem persists.
                         
                         <pre>
                           {internalError}
